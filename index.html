@@ -10,7 +10,7 @@
 
 <body>
   <a-scene
-    mindar-image="imageTargetSrc: targets.mind; smoothing: true; filterMinCF:0.0001; filterBeta: 0.001"
+    mindar-image="imageTargetSrc: targets.mind; smoothing: true; warmupTolerance: 5; missTolerance: 5; filterMinCF:0.0001; filterBeta: 0.001"
     color-space="sRGB"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false"
@@ -18,309 +18,11 @@
   >
     <a-entity light="type: ambient; intensity: 1"></a-entity>
 
-    <a-entity id="target3" mindar-image-target="targetIndex: 0">
-      <a-plane
-        src="images/4.png"
-        width="0.8139"
-        height="1.4"
-        position="0 0.05 0"
-        scale="1.35 1.25 1"
-        material="shader: flat; transparent: true; depthWrite: false"
-      ></a-plane>
-
-      <a-plane
-        src="images/4_5_s.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.04 0.42"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 3000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 3
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_6_s.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.38"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 1500;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 5
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_7_s.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.34"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 2000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 -4
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_4.png"
-        width="0.8927"
-        height="1.4"
-        position="0 0.07 0.30"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__fade="
-          property: material.opacity;
-          dir: alternate;
-          dur: 1000;
-          easing: easeInOutSine;
-          loop: true;
-          from: 0.2;
-          to: 1
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_4_.png"
-        width="0.8927"
-        height="1.4"
-        position="0 0.07 0.31"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__fade="
-          property: material.opacity;
-          dir: alternate;
-          dur: 1000;
-          easing: easeInOutSine;
-          loop: true;
-          from: 1;
-          to: 0.2
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_6.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.50"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 1500;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 8
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_7.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.46"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 2000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 -7
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_5.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.54"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 3000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 5
-        "
-      ></a-plane>
-    </a-entity>
-
-    <a-entity id="target1" mindar-image-target="targetIndex: 1">
-      <a-plane
-        src="images/5.png"
-        width="0.8139"
-        height="1.4"
-        position="0 0.05 0"
-        scale="1.35 1.25 1"
-        material="shader: flat; transparent: true; depthWrite: false"
-      ></a-plane>
-
-      <a-plane
-        src="images/5_5_s.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.04 0.42"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 3000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 3
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/5_6_s.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.34"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 1500;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 5
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/5_7_s.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.38"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 2000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 -4
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_4.png"
-        width="0.8927"
-        height="1.4"
-        position="0 0.07 0.30"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__fade="
-          property: material.opacity;
-          dir: alternate;
-          dur: 1000;
-          easing: easeInOutSine;
-          loop: true;
-          from: 0.2;
-          to: 1
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/4_4_.png"
-        width="0.8927"
-        height="1.4"
-        position="0 0.07 0.31"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__fade="
-          property: material.opacity;
-          dir: alternate;
-          dur: 1000;
-          easing: easeInOutSine;
-          loop: true;
-          from: 1;
-          to: 0.2
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/5_6.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.46"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 1500;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 8
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/5_7.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.50"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 2000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 -7
-        "
-      ></a-plane>
-
-      <a-plane
-        src="images/5_5.png"
-        width="0.7911"
-        height="1.4"
-        position="0 0.07 0.54"
-        scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true; depthWrite: false"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 3000;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 5
-        "
-      ></a-plane>
-    </a-entity>
-
-    <a-entity id="target2" mindar-image-target="targetIndex: 2">
+    <a-entity id="target0" mindar-image-target="targetIndex: 0">
       <a-entity id="character-billboard">
         <a-plane
           id="character-plane"
-          src="images/character.png"
+          src="images/target0_character.png"
           width="1"
           height="1"
           position="0 0 0"
@@ -328,6 +30,304 @@
           material="shader: flat; transparent: true; side: double; alphaTest: 0.01"
         ></a-plane>
       </a-entity>
+    </a-entity>
+
+    <a-entity id="target1" mindar-image-target="targetIndex: 1">
+      <a-plane
+        src="images/target1.png"
+        width="0.8139"
+        height="1.4"
+        position="0 0.05 0"
+        scale="1.35 1.25 1"
+        material="shader: flat; transparent: true; depthWrite: false"
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_5_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.04 0.42"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 3000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -6
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_6_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.38"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 1500;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 9
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_7_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.34"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 2000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -8
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_4.png"
+        width="0.8927"
+        height="1.4"
+        position="0 0.07 0.30"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__fade="
+          property: material.opacity;
+          dir: alternate;
+          dur: 1000;
+          easing: easeInOutSine;
+          loop: true;
+          from: 0.2;
+          to: 1
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_4_alt.png"
+        width="0.8927"
+        height="1.4"
+        position="0 0.07 0.31"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__fade="
+          property: material.opacity;
+          dir: alternate;
+          dur: 1000;
+          easing: easeInOutSine;
+          loop: true;
+          from: 1;
+          to: 0.2
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_6.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.50"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 1500;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 12
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_7.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.46"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 2000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -11
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target1_5.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.54"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 3000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -9
+        "
+      ></a-plane>
+    </a-entity>
+
+    <a-entity id="target2" mindar-image-target="targetIndex: 2">
+      <a-plane
+        src="images/target2.png"
+        width="0.8139"
+        height="1.4"
+        position="0 0.05 0"
+        scale="1.35 1.25 1"
+        material="shader: flat; transparent: true; depthWrite: false"
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_5_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.04 0.42"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 3000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 3
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_6_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.34"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 1500;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 5
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_7_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.38"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 2000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -4
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_4.png"
+        width="0.8927"
+        height="1.4"
+        position="0 0.07 0.30"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__fade="
+          property: material.opacity;
+          dir: alternate;
+          dur: 1000;
+          easing: easeInOutSine;
+          loop: true;
+          from: 0.2;
+          to: 1
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_4_alt.png"
+        width="0.8927"
+        height="1.4"
+        position="0 0.07 0.31"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__fade="
+          property: material.opacity;
+          dir: alternate;
+          dur: 1000;
+          easing: easeInOutSine;
+          loop: true;
+          from: 1;
+          to: 0.2
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_6.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.46"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 1500;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 8
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_7.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.50"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 2000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -7
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/target2_5.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.54"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 3000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 5
+        "
+      ></a-plane>
     </a-entity>
 
     <a-camera active="true" position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -385,16 +385,26 @@
     const TARGET_PHYSICAL_HEIGHT_M = 0.297;
     const DESK_HEIGHT_M = 1.0;
 
-    const CHARACTER_IMAGE_SRC = "images/character.png";
+    const CHARACTER_IMAGE_SRC = "images/target0_character.png";
     const CHARACTER_VISIBLE_HEIGHT_M = 2.805;
     const CHARACTER_RIGHT_GAP_M = 0.0;
     const CHARACTER_VERTICAL_OFFSET_M = -0.621;
     const CHARACTER_FORWARD_M = 0.12;
     const IDLE_FLOAT_M = 0.01;
     const IDLE_SWAY_DEG = 1.2;
+    const PANEL_STABLE_DELAY_MS = 1200;
 
+    const panelTarget = document.getElementById("target0");
+    const priorityTargets = [
+      document.getElementById("target1"),
+      document.getElementById("target2")
+    ];
     const characterBillboard = document.getElementById("character-billboard");
     const characterPlane = document.getElementById("character-plane");
+    const activeTargets = new Set();
+    let characterReady = false;
+    let panelStable = false;
+    let panelRevealTimer = null;
 
     loadImageSize(CHARACTER_IMAGE_SRC)
       .then(({ width, height }) => {
@@ -426,7 +436,8 @@
         characterPlane.setAttribute("src", CHARACTER_IMAGE_SRC);
         characterPlane.setAttribute("width", characterWidthUnits.toFixed(3));
         characterPlane.setAttribute("height", characterHeightUnits.toFixed(3));
-        characterPlane.setAttribute("visible", "true");
+        characterReady = true;
+        updatePanelVisibility();
         characterPlane.setAttribute(
           "animation__float",
           [
@@ -467,6 +478,65 @@
         image.addEventListener("error", reject);
         image.src = src;
       });
+    }
+
+    panelTarget.addEventListener("targetFound", () => {
+      activeTargets.add("target0");
+      schedulePanelReveal();
+    });
+
+    panelTarget.addEventListener("targetLost", () => {
+      activeTargets.delete("target0");
+      hidePanel();
+    });
+
+    priorityTargets.forEach((target) => {
+      target.addEventListener("targetFound", () => {
+        activeTargets.add(target.id);
+        hidePanel();
+      });
+
+      target.addEventListener("targetLost", () => {
+        activeTargets.delete(target.id);
+        schedulePanelReveal();
+      });
+    });
+
+    function schedulePanelReveal() {
+      window.clearTimeout(panelRevealTimer);
+      panelStable = false;
+      characterPlane.setAttribute("visible", "false");
+
+      if (!activeTargets.has("target0") || hasPriorityTarget()) {
+        return;
+      }
+
+      panelRevealTimer = window.setTimeout(() => {
+        panelStable = true;
+        updatePanelVisibility();
+      }, PANEL_STABLE_DELAY_MS);
+    }
+
+    function updatePanelVisibility() {
+      characterPlane.setAttribute(
+        "visible",
+        String(
+          characterReady &&
+          panelStable &&
+          activeTargets.has("target0") &&
+          !hasPriorityTarget()
+        )
+      );
+    }
+
+    function hidePanel() {
+      window.clearTimeout(panelRevealTimer);
+      panelStable = false;
+      characterPlane.setAttribute("visible", "false");
+    }
+
+    function hasPriorityTarget() {
+      return activeTargets.has("target1") || activeTargets.has("target2");
     }
   </script>
 </body>
