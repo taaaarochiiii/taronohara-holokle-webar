@@ -17,7 +17,7 @@
       touch-action: manipulation;
     }
 
-    video:not(.target3-video) {
+    video:not(.target3-video):not(.target4-video) {
       position: fixed !important;
       inset: 0 !important;
       width: 100vw !important;
@@ -205,6 +205,20 @@
         this.el.object3D.scale.set(direction, this.baseScaleY, 1);
       }
     });
+
+    AFRAME.registerComponent("click-to-link", {
+      schema: {
+        url: { type: "string", default: "" }
+      },
+
+      init() {
+        this.el.addEventListener("click", () => {
+          if (this.data.url) {
+            window.location.assign(this.data.url);
+          }
+        });
+      }
+    });
   </script>
 </head>
 
@@ -215,6 +229,8 @@
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false"
     renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true; preserveDrawingBuffer: true"
+    cursor="rayOrigin: mouse; fuse: false"
+    raycaster="objects: .clickable; far: 10000; interval: 100"
   >
     <a-assets>
       <video id="target3-video-1" class="target3-video" src="images/target3_green_1.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
@@ -222,6 +238,7 @@
       <video id="target3-video-3" class="target3-video" src="images/target3_green_3.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
       <video id="target3-video-4" class="target3-video" src="images/target3_green_4.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
       <video id="target3-video-5" class="target3-video" src="images/target3_green_5.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
+      <video id="target4-video" class="target4-video" src="images/target_winter.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
     </a-assets>
 
     <a-entity light="type: ambient; intensity: 1"></a-entity>
@@ -577,6 +594,70 @@
       ></a-plane>
     </a-entity>
 
+    <a-entity id="target4" mindar-image-target="targetIndex: 4">
+      <a-plane
+        width="0.62"
+        height="0.62"
+        position="0 0 0.20"
+        material="shader: flat; src: #target4-video; transparent: true; depthWrite: false; side: double"
+      ></a-plane>
+    </a-entity>
+
+    <a-entity id="target6" mindar-image-target="targetIndex: 6">
+      <a-plane
+        src="images/target6.png"
+        width="1.35"
+        height="1.35"
+        position="0 0.10 0.20"
+        material="shader: flat; transparent: true; depthWrite: false; side: double"
+      ></a-plane>
+      <a-plane
+        src="images/target6_portfolio.png"
+        width="1.35"
+        height="1.35"
+        position="0.12 0.10 0.30"
+        material="shader: flat; transparent: true; depthWrite: false; side: double"
+      ></a-plane>
+      <a-plane
+        src="images/target6_litlink.png"
+        width="1.35"
+        height="1.35"
+        position="0 -0.02 0.31"
+        material="shader: flat; transparent: true; depthWrite: false; side: double"
+      ></a-plane>
+      <a-plane
+        src="images/target6_X.png"
+        width="1.35"
+        height="1.35"
+        position="-0.12 0.10 0.32"
+        material="shader: flat; transparent: true; depthWrite: false; side: double"
+      ></a-plane>
+      <a-plane
+        class="clickable"
+        click-to-link="url: https://fori.io/taaaarochiiii"
+        width="0.52"
+        height="0.34"
+        position="0.47 0.08 0.36"
+        material="shader: flat; color: #ffffff; transparent: true; opacity: 0; depthWrite: false; side: double"
+      ></a-plane>
+      <a-plane
+        class="clickable"
+        click-to-link="url: https://lit.link/taaaarochiiii"
+        width="0.52"
+        height="0.34"
+        position="-0.28 -0.43 0.37"
+        material="shader: flat; color: #ffffff; transparent: true; opacity: 0; depthWrite: false; side: double"
+      ></a-plane>
+      <a-plane
+        class="clickable"
+        click-to-link="url: https://x.com/taaaarochiiii"
+        width="0.48"
+        height="0.34"
+        position="-0.51 0.37 0.38"
+        material="shader: flat; color: #ffffff; transparent: true; opacity: 0; depthWrite: false; side: double"
+      ></a-plane>
+    </a-entity>
+
     <a-camera active="true" position="0 0 0" look-controls="enabled: false"></a-camera>
   </a-scene>
 
@@ -652,6 +733,8 @@
     ];
     const target3Target = document.getElementById("target3");
     const target3Videos = Array.from(document.querySelectorAll(".target3-video"));
+    const target4Target = document.getElementById("target4");
+    const target4Video = document.getElementById("target4-video");
     const characterBillboard = document.getElementById("character-billboard");
     const characterPlane = document.getElementById("character-plane");
     const sceneEl = document.querySelector("a-scene");
@@ -660,6 +743,7 @@
     let panelStable = false;
     let panelRevealTimer = null;
     let target3Active = false;
+    let target4Active = false;
 
     keepCameraFeedVisible();
     sceneEl?.addEventListener("loaded", ensureTransparentRenderer);
@@ -776,8 +860,18 @@
       pauseTarget3Videos();
     });
 
-    document.body.addEventListener("click", unlockTarget3Videos, { once: true });
-    document.body.addEventListener("touchstart", unlockTarget3Videos, { once: true });
+    target4Target.addEventListener("targetFound", () => {
+      target4Active = true;
+      playVideo(target4Video);
+    });
+
+    target4Target.addEventListener("targetLost", () => {
+      target4Active = false;
+      target4Video.pause();
+    });
+
+    document.body.addEventListener("click", unlockArVideos, { once: true });
+    document.body.addEventListener("touchstart", unlockArVideos, { once: true });
 
     function schedulePanelReveal() {
       window.clearTimeout(panelRevealTimer);
@@ -818,8 +912,7 @@
 
     function playTarget3Videos() {
       target3Videos.forEach((video) => {
-        video.muted = true;
-        video.play().catch(() => {});
+        playVideo(video);
       });
     }
 
@@ -829,17 +922,25 @@
       });
     }
 
-    function unlockTarget3Videos() {
-      target3Videos.forEach((video) => {
+    function unlockArVideos() {
+      [...target3Videos, target4Video].forEach((video) => {
         video.muted = true;
         video.play()
           .then(() => {
-            if (!target3Active) {
+            if (
+              (video.classList.contains("target3-video") && !target3Active) ||
+              (video === target4Video && !target4Active)
+            ) {
               video.pause();
             }
           })
           .catch(() => {});
       });
+    }
+
+    function playVideo(video) {
+      video.muted = true;
+      video.play().catch(() => {});
     }
 
     setupPhotoCapture();
@@ -941,7 +1042,11 @@
     }
 
     function isArAssetVideo(video) {
-      return video.classList.contains("target3-video") || Boolean(video.closest("a-assets"));
+      return (
+        video.classList.contains("target3-video") ||
+        video.classList.contains("target4-video") ||
+        Boolean(video.closest("a-assets"))
+      );
     }
 
     function findArCanvas() {
