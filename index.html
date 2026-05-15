@@ -6,122 +6,35 @@
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-
-  <!-- <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background: black;
-    }
-
-    #captureButton {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: white;
-      border: 6px solid rgba(255,255,255,0.6);
-      box-shadow: 0 0 0 4px rgba(0,0,0,0.2);
-      z-index: 9999;
-    }
-
-    #captureButton:active {
-      transform: translateX(-50%) scale(0.95);
-    }
-  </style> -->
 </head>
 
 <body>
+  <a-scene
+    mindar-image="imageTargetSrc: targets.mind; smoothing: true; filterMinCF:0.0001; filterBeta: 0.001"
+    color-space="sRGB"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false"
+    renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
+  >
+    <a-entity light="type: ambient; intensity: 1"></a-entity>
 
-<a-scene
-  mindar-image="imageTargetSrc: targets.mind; smoothing: true; filterMinCF:0.0001; filterBeta: 0.001"
-  vr-mode-ui="enabled: false"
-  device-orientation-permission-ui="enabled: false"
-  renderer="alpha: true; preserveDrawingBuffer: true"
->
-<a-assets>
-  <video id="video1" crossorigin="anonymous" autoplay loop muted playsinline webkit-playsinline preload="auto">
-    <source src="images/1.mp4" type="video/mp4">
-  </video>
-  <video id="video5" crossorigin="anonymous" autoplay loop muted playsinline webkit-playsinline preload="auto">
-    <source src="images/5.mp4" type="video/mp4">
-  </video>
-  <video id="video6" crossorigin="anonymous" autoplay loop muted playsinline webkit-playsinline preload="auto">
-    <source src="images/6.mp4" type="video/mp4">
-  </video>
-</a-assets>
-  <a-entity light="type: ambient; intensity: 1"></a-entity>
-
-  <!-- ===== target 0 ===== -->
-  <a-entity id="target0" mindar-image-target="targetIndex: 0">
-    <a-plane
-      id="videoPlane"
-      material="shader: flat; src: #video1; transparent: true"
-      width="1"
-      height="1"
-      position="0 0.05 0.05"
-      scale="1.1 1.1 1"
-    ></a-plane>
-  </a-entity>
-
-  <!-- ===== target 1 ===== -->
-  <a-entity mindar-image-target="targetIndex: 1">
-    <a-plane
-      src="images/2.webp"
-      width="1"
-      height="1"
-      position="0 0.05 0"
-      rotation="20 0 0"
-      scale="0.9 0.9 1"
-      material="shader: flat; transparent: true"
-    ></a-plane>
-  </a-entity>
-
-  <!-- ===== target 2 ===== -->
-  <a-entity mindar-image-target="targetIndex: 2">
-    <a-plane
-      src="images/3_1.png"
-      width="1"
-      height="1.4"
-      position="0 0.05 0"
-      scale="1.15 1.15 1"
-      material="shader: flat; transparent: true"
-    ></a-plane>
-
-    <!-- <a-plane
-      src="images/3_2.png"
-      width="1"
-      height="1.4"
-      position="0 0.07 0.30"
-      scale="1.35 1.25 1"
-      material="shader: flat; transparent: true"
-    ></a-plane> -->
-
-  </a-entity>
-
-    <!-- ========== チェキ2（静止画表示） ========== -->
-    <a-entity id="target3" mindar-image-target="targetIndex: 3">
+    <a-entity id="target3" mindar-image-target="targetIndex: 0">
       <a-plane
-        id="staticPlaneBase"
         src="images/4.png"
-        width="1"
+        width="0.8139"
         height="1.4"
         position="0 0.05 0"
         scale="1.35 1.25 1"
-        material="shader: flat; transparent: true"
+        material="shader: flat; transparent: true; depthWrite: false"
       ></a-plane>
 
       <a-plane
-        id="staticPlane5"
         src="images/4_5_s.png"
-        width="1"
+        width="0.7911"
         height="1.4"
-        position="0 0.04 0.15"
+        position="0 0.04 0.42"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__sway="
           property: rotation;
           dir: alternate;
@@ -133,13 +46,12 @@
       ></a-plane>
 
       <a-plane
-        id="staticPlane6"
         src="images/4_6_s.png"
-        width="1"
+        width="0.7911"
         height="1.4"
-        position="0 0.07 0.16"
+        position="0 0.07 0.38"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__sway="
           property: rotation;
           dir: alternate;
@@ -149,16 +61,14 @@
           to: 0 0 5
         "
       ></a-plane>
-      
+
       <a-plane
-        id="staticPlane7"
         src="images/4_7_s.png"
-        width="1"
+        width="0.7911"
         height="1.4"
-        position="0 0.07 0.17"
+        position="0 0.07 0.34"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
-        
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__sway="
           property: rotation;
           dir: alternate;
@@ -170,13 +80,12 @@
       ></a-plane>
 
       <a-plane
-        id="effectPlane"
         src="images/4_4.png"
-        width="1"
+        width="0.8927"
         height="1.4"
         position="0 0.07 0.30"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__fade="
           property: material.opacity;
           dir: alternate;
@@ -187,15 +96,14 @@
           to: 1
         "
       ></a-plane>
-      
+
       <a-plane
-        id="effectPlane2"
         src="images/4_4_.png"
-        width="1"
+        width="0.8927"
         height="1.4"
-        position="0 0.07 0.30"
+        position="0 0.07 0.31"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__fade="
           property: material.opacity;
           dir: alternate;
@@ -208,13 +116,12 @@
       ></a-plane>
 
       <a-plane
-        id="staticPlane6"
         src="images/4_6.png"
-        width="1"
+        width="0.7911"
         height="1.4"
-        position="0 0.07 0.40"
+        position="0 0.07 0.50"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__sway="
           property: rotation;
           dir: alternate;
@@ -226,14 +133,12 @@
       ></a-plane>
 
       <a-plane
-        id="staticPlane7"
         src="images/4_7.png"
-        width="1"
+        width="0.7911"
         height="1.4"
-        position="0 0.07 0.42"
+        position="0 0.07 0.46"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
-        
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__sway="
           property: rotation;
           dir: alternate;
@@ -242,17 +147,15 @@
           loop: true;
           to: 0 0 -7
         "
-
       ></a-plane>
 
       <a-plane
-        id="staticPlane5"
         src="images/4_5.png"
-        width="1"
+        width="0.7911"
         height="1.4"
-        position="0 0.07 0.50"
+        position="0 0.07 0.54"
         scale="1.5 1.35 1.1"
-        material="shader: flat; transparent: true"
+        material="shader: flat; transparent: true; depthWrite: false"
         animation__sway="
           property: rotation;
           dir: alternate;
@@ -262,120 +165,309 @@
           to: 0 0 5
         "
       ></a-plane>
-
     </a-entity>
 
-    <!-- ===== target 4（動画表示） ===== -->
-    <a-entity id="target4" mindar-image-target="targetIndex: 4">
+    <a-entity id="target1" mindar-image-target="targetIndex: 1">
       <a-plane
-        id="videoPlane"
-        material="shader: flat; src: #video5; transparent: true"
-        width="1"
-        height="1"
-        position="0 0.05 0.05"
-        scale="1 1 1"
+        src="images/5.png"
+        width="0.8139"
+        height="1.4"
+        position="0 0.05 0"
+        scale="1.35 1.25 1"
+        material="shader: flat; transparent: true; depthWrite: false"
+      ></a-plane>
+
+      <a-plane
+        src="images/5_5_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.04 0.42"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 3000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 3
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/5_6_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.34"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 1500;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 5
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/5_7_s.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.38"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 2000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -4
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/4_4.png"
+        width="0.8927"
+        height="1.4"
+        position="0 0.07 0.30"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__fade="
+          property: material.opacity;
+          dir: alternate;
+          dur: 1000;
+          easing: easeInOutSine;
+          loop: true;
+          from: 0.2;
+          to: 1
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/4_4_.png"
+        width="0.8927"
+        height="1.4"
+        position="0 0.07 0.31"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__fade="
+          property: material.opacity;
+          dir: alternate;
+          dur: 1000;
+          easing: easeInOutSine;
+          loop: true;
+          from: 1;
+          to: 0.2
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/5_6.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.46"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 1500;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 8
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/5_7.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.50"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 2000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 -7
+        "
+      ></a-plane>
+
+      <a-plane
+        src="images/5_5.png"
+        width="0.7911"
+        height="1.4"
+        position="0 0.07 0.54"
+        scale="1.5 1.35 1.1"
+        material="shader: flat; transparent: true; depthWrite: false"
+        animation__sway="
+          property: rotation;
+          dir: alternate;
+          dur: 3000;
+          easing: easeInOutSine;
+          loop: true;
+          to: 0 0 5
+        "
       ></a-plane>
     </a-entity>
-    
-    <!-- ===== target 5（動画表示） ===== -->
-    <a-entity id="target5" mindar-image-target="targetIndex: 5">
-      <a-plane
-        id="videoPlane"
-        material="shader: flat; src: #video6; transparent: true"
-        width="1"
-        height="1"
-        position="0.15 -0.1 0.05"
-        scale="2.7 2.7 1"
-      ></a-plane>
+
+    <a-entity id="target2" mindar-image-target="targetIndex: 2">
+      <a-entity id="character-billboard">
+        <a-plane
+          id="character-plane"
+          src="images/character.png"
+          width="1"
+          height="1"
+          position="0 0 0"
+          visible="false"
+          material="shader: flat; transparent: true; side: double; alphaTest: 0.01"
+        ></a-plane>
+      </a-entity>
     </a-entity>
 
+    <a-camera active="true" position="0 0 0" look-controls="enabled: false"></a-camera>
+  </a-scene>
 
-  <a-camera active='true' position='0 0 0'></a-camera>
-</a-scene>
+  <script>
+    AFRAME.registerComponent("camera-facing", {
+      init() {
+        this.parentQuaternion = new THREE.Quaternion();
+        this.inverseParentQuaternion = new THREE.Quaternion();
+        this.desiredWorldQuaternion = new THREE.Quaternion();
+        this.frontFacingQuaternion = new THREE.Quaternion();
+        this.wrapperWorldPosition = new THREE.Vector3();
+        this.cameraWorldPosition = new THREE.Vector3();
+        this.lookAtMatrix = new THREE.Matrix4();
+        this.up = new THREE.Vector3(0, 1, 0);
+        this.camera = null;
 
-<button id="captureButton"></button>
-<canvas id="captureCanvas" style="display:none;"></canvas>
+        this.frontFacingQuaternion.setFromEuler(
+          new THREE.Euler(0, Math.PI, 0)
+        );
+      },
 
-<script>
+      tick() {
+        const parentObject = this.el.parentEl?.object3D;
+        const cameraObject = this.camera || this.el.sceneEl.camera;
 
-/* ===============================
-    動画再生
-=============================== */
-window.addEventListener("DOMContentLoaded", () => {
-  // target と video の紐付けマッピング
-  const videoMapping = {
-    0: 'video1',
-    4: 'video5',
-    5: 'video6'
-  };
+        if (!parentObject || !cameraObject) {
+          return;
+        }
 
-  Object.entries(videoMapping).forEach(([targetIndex, videoId]) => {
-    const target = document.querySelector(`#target${targetIndex}`);
-    const video = document.querySelector(`#${videoId}`);
+        this.camera = cameraObject;
 
-    if (!target || !video) return;
+        parentObject.getWorldQuaternion(this.parentQuaternion);
+        this.inverseParentQuaternion.copy(this.parentQuaternion).invert();
 
-    target.addEventListener("targetFound", async () => {
-      try {
-        try { video.load(); } catch (e) {}
-        await video.play();
-      } catch (e) {
-        console.warn(`video ${videoId} play failed:`, e);
+        this.el.object3D.getWorldPosition(this.wrapperWorldPosition);
+        cameraObject.getWorldPosition(this.cameraWorldPosition);
+
+        this.lookAtMatrix.lookAt(
+          this.wrapperWorldPosition,
+          this.cameraWorldPosition,
+          this.up
+        );
+        this.desiredWorldQuaternion.setFromRotationMatrix(this.lookAtMatrix);
+        this.desiredWorldQuaternion.multiply(this.frontFacingQuaternion);
+
+        this.el.object3D.quaternion.copy(this.inverseParentQuaternion);
+        this.el.object3D.quaternion.multiply(this.desiredWorldQuaternion);
       }
     });
 
-    target.addEventListener("targetLost", () => {
-      try {
-        video.pause();
-        video.currentTime = 0;
-      } catch (e) {}
-    });
-  });
-});
+    const TARGET_IMAGE_WIDTH_PX = 1451;
+    const TARGET_IMAGE_HEIGHT_PX = 2048;
+    const TARGET_PHYSICAL_HEIGHT_M = 0.297;
+    const DESK_HEIGHT_M = 1.0;
 
-/* ===============================
-   撮影
-=============================== */
-const btn = document.getElementById("captureButton");
-const out = document.getElementById("captureCanvas");
+    const CHARACTER_IMAGE_SRC = "images/character.png";
+    const CHARACTER_VISIBLE_HEIGHT_M = 2.805;
+    const CHARACTER_RIGHT_GAP_M = 0.0;
+    const CHARACTER_VERTICAL_OFFSET_M = -0.621;
+    const CHARACTER_FORWARD_M = 0.12;
+    const IDLE_FLOAT_M = 0.01;
+    const IDLE_SWAY_DEG = 1.2;
 
-btn.addEventListener("click", () => {
-  const scene = document.querySelector("a-scene");
-  const gl = scene.renderer.domElement;
-  const video = document.querySelector("video");
+    const characterBillboard = document.getElementById("character-billboard");
+    const characterPlane = document.getElementById("character-plane");
 
-  if (!video || video.videoWidth === 0) return;
+    loadImageSize(CHARACTER_IMAGE_SRC)
+      .then(({ width, height }) => {
+        const targetPhysicalWidthM =
+          TARGET_PHYSICAL_HEIGHT_M * (TARGET_IMAGE_WIDTH_PX / TARGET_IMAGE_HEIGHT_PX);
+        const anchorUnitsPerMeter = 1 / targetPhysicalWidthM;
+        const characterAspectRatio = width / height;
+        const characterPhysicalWidthM =
+          CHARACTER_VISIBLE_HEIGHT_M * characterAspectRatio;
 
-  // 次の描画フレームを2回待つ
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      out.width = gl.width;
-      out.height = gl.height;
+        const characterWidthUnits = characterPhysicalWidthM * anchorUnitsPerMeter;
+        const characterHeightUnits = CHARACTER_VISIBLE_HEIGHT_M * anchorUnitsPerMeter;
 
-      const ctx = out.getContext("2d");
+        const targetCenterFromFloorM = DESK_HEIGHT_M + TARGET_PHYSICAL_HEIGHT_M / 2;
+        const characterCenterFromFloorM =
+          (CHARACTER_VISIBLE_HEIGHT_M / 2) + CHARACTER_VERTICAL_OFFSET_M;
 
-      ctx.drawImage(video, 0, 0, out.width, out.height);
-      ctx.drawImage(gl, 0, 0, out.width, out.height);
+        const positionXUnits = CHARACTER_RIGHT_GAP_M * anchorUnitsPerMeter;
+        const positionYUnits =
+          (characterCenterFromFloorM - targetCenterFromFloorM) * anchorUnitsPerMeter;
+        const positionZUnits = CHARACTER_FORWARD_M * anchorUnitsPerMeter;
 
-      // 画像名はタイムスタンプ
-      file_name = `${Date.now()}.png`;
+        characterBillboard.setAttribute(
+          "position",
+          `${positionXUnits.toFixed(3)} ${positionYUnits.toFixed(3)} ${positionZUnits.toFixed(3)}`
+        );
+        characterBillboard.setAttribute("camera-facing", "");
 
-      out.toBlob(async (blob) => {
-        const file = new File([blob], file_name, { type: "image/png" });
-
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({ files: [file], title: "AR Photo" });
-        } else {
-          const a = document.createElement("a");
-          a.href = URL.createObjectURL(blob);
-          a.download = file_name;
-          a.click();
-        }
+        characterPlane.setAttribute("src", CHARACTER_IMAGE_SRC);
+        characterPlane.setAttribute("width", characterWidthUnits.toFixed(3));
+        characterPlane.setAttribute("height", characterHeightUnits.toFixed(3));
+        characterPlane.setAttribute("visible", "true");
+        characterPlane.setAttribute(
+          "animation__float",
+          [
+            "property: position",
+            "dir: alternate",
+            "dur: 2200",
+            "easing: easeInOutSine",
+            "loop: true",
+            `to: 0 ${(IDLE_FLOAT_M * anchorUnitsPerMeter).toFixed(3)} 0`
+          ].join("; ")
+        );
+        characterPlane.setAttribute(
+          "animation__sway",
+          [
+            "property: rotation",
+            "dir: alternate",
+            "dur: 3200",
+            "easing: easeInOutSine",
+            "loop: true",
+            `to: 0 0 ${IDLE_SWAY_DEG}`
+          ].join("; ")
+        );
+      })
+      .catch((error) => {
+        console.error("Failed to load character image size.", error);
       });
-    });
-  });
-});
-</script>
 
+    function loadImageSize(src) {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+
+        image.addEventListener("load", () => {
+          resolve({
+            width: image.naturalWidth,
+            height: image.naturalHeight
+          });
+        });
+        image.addEventListener("error", reject);
+        image.src = src;
+      });
+    }
+  </script>
 </body>
 </html>
