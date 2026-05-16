@@ -237,11 +237,8 @@
     raycaster="objects: .clickable; far: 10000; interval: 100"
     >
     <a-assets>
-      <video id="target3-video-1" class="target3-video" src="images/target3_green_1.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-2" class="target3-video" src="images/target3_green_2.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-3" class="target3-video" src="images/target3_green_3.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-4" class="target3-video" src="images/target3_green_4.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-5" class="target3-video" src="images/target3_green_5.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
+      <video id="target3-video-1" class="target3-video" src="images/target3_green_1.mp4" loop muted playsinline webkit-playsinline preload="metadata"></video>
+      <video id="target3-video-others" class="target3-video" src="images/target3_green_others.mp4" loop muted playsinline webkit-playsinline preload="metadata"></video>
       <video id="target4-video" class="target4-video" src="images/target_winter.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
       <video id="target6-video" class="target6-video" src="images/target6_green.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
       <video id="target7-video" class="target7-video" src="images/target7_bancho.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
@@ -571,32 +568,11 @@
         material="shader: chromakey; src: #target3-video-1; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
       ></a-plane>
       <a-plane
-        width="0.39"
-        height="0.39"
-        position="-0.16 0.15 0.24"
+        width="0.91"
+        height="0.835"
+        position="0.10 0.003 0.26"
         rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-2; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
-      ></a-plane>
-      <a-plane
-        width="0.51"
-        height="0.51"
-        position="0.30 -0.16 0.22"
-        rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-3; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
-      ></a-plane>
-      <a-plane
-        width="0.44"
-        height="0.44"
-        position="0.22 0.20 0.26"
-        rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-4; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
-      ></a-plane>
-      <a-plane
-        width="0.48"
-        height="0.48"
-        position="-0.09 0.00 0.28"
-        rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-5; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
+        material="shader: chromakey; src: #target3-video-others; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
       ></a-plane>
     </a-entity>
 
