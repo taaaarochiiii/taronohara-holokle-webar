@@ -210,19 +210,6 @@
       }
     });
 
-    AFRAME.registerComponent("click-to-link", {
-      schema: {
-        url: { type: "string", default: "" }
-      },
-
-      init() {
-        this.el.addEventListener("click", () => {
-          if (this.data.url) {
-            window.location.assign(this.data.url);
-          }
-        });
-      }
-    });
   </script>
 </head>
 
@@ -233,15 +220,10 @@
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false"
     renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true; preserveDrawingBuffer: true"
-    cursor="rayOrigin: mouse; fuse: false"
-    raycaster="objects: .clickable; far: 10000; interval: 100"
     >
     <a-assets>
-      <video id="target3-video-1" class="target3-video" src="images/target3_green_1.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-2" class="target3-video" src="images/target3_green_2.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-3" class="target3-video" src="images/target3_green_3.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-4" class="target3-video" src="images/target3_green_4.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
-      <video id="target3-video-5" class="target3-video" src="images/target3_green_5.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
+      <video id="target3-video-1" class="target3-video" src="images/target3_green_1.mp4" loop muted playsinline webkit-playsinline preload="metadata"></video>
+      <video id="target3-video-others" class="target3-video" src="images/target3_green_others.mp4" loop muted playsinline webkit-playsinline preload="metadata"></video>
       <video id="target4-video" class="target4-video" src="images/target_winter.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
       <video id="target6-video" class="target6-video" src="images/target6_green.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
       <video id="target7-video" class="target7-video" src="images/target7_bancho.mp4" loop muted playsinline webkit-playsinline preload="auto"></video>
@@ -253,7 +235,7 @@
       <a-entity id="character-billboard">
         <a-plane
           id="character-plane"
-          src="images/target0_character.png"
+          src="images/target0_character.webp"
           width="1"
           height="1"
           position="0 0 0"
@@ -264,8 +246,9 @@
     </a-entity>
 
     <a-entity id="target1" mindar-image-target="targetIndex: 1">
+      <a-entity position="0 -0.17 0" scale="1.12 1.12 1">
       <a-plane
-        src="images/target1.png"
+        src="images/target1.webp"
         width="0.8139"
         height="1.4"
         position="0 0.05 0"
@@ -325,7 +308,7 @@
       ></a-plane>
 
       <a-plane
-        src="images/target1_4.png"
+        src="images/target1_4.webp"
         width="0.8927"
         height="1.4"
         position="0 0.07 0.30"
@@ -343,7 +326,7 @@
       ></a-plane>
 
       <a-plane
-        src="images/target1_4_alt.png"
+        src="images/target1_4_alt.webp"
         width="0.8927"
         height="1.4"
         position="0 0.07 0.31"
@@ -410,11 +393,13 @@
           to: 0 0 -9
         "
       ></a-plane>
+      </a-entity>
     </a-entity>
 
     <a-entity id="target2" mindar-image-target="targetIndex: 2">
+      <a-entity position="0 -0.17 0" scale="1.12 1.12 1">
       <a-plane
-        src="images/target2.png"
+        src="images/target2.webp"
         width="0.8139"
         height="1.4"
         position="0 0.05 0"
@@ -474,7 +459,7 @@
       ></a-plane>
 
       <a-plane
-        src="images/target2_4.png"
+        src="images/target2_4.webp"
         width="0.8927"
         height="1.4"
         position="0 0.07 0.30"
@@ -492,7 +477,7 @@
       ></a-plane>
 
       <a-plane
-        src="images/target2_4_alt.png"
+        src="images/target2_4_alt.webp"
         width="0.8927"
         height="1.4"
         position="0 0.07 0.31"
@@ -559,9 +544,11 @@
           to: 0 0 5
         "
       ></a-plane>
+      </a-entity>
     </a-entity>
 
     <a-entity id="target3" mindar-image-target="targetIndex: 3">
+      <a-entity position="0 -0.07 0">
       <a-plane
         wander-video="minX: -0.26; maxX: 0.26; minY: -0.12; maxY: 0.08; speed: 0.22; turnInterval: 900"
         width="0.58"
@@ -571,39 +558,19 @@
         material="shader: chromakey; src: #target3-video-1; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
       ></a-plane>
       <a-plane
-        width="0.39"
-        height="0.39"
-        position="-0.16 0.15 0.24"
+        width="0.91"
+        height="0.835"
+        position="0.10 0.003 0.26"
         rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-2; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
+        material="shader: chromakey; src: #target3-video-others; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
       ></a-plane>
-      <a-plane
-        width="0.51"
-        height="0.51"
-        position="0.30 -0.16 0.22"
-        rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-3; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
-      ></a-plane>
-      <a-plane
-        width="0.44"
-        height="0.44"
-        position="0.22 0.20 0.26"
-        rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-4; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
-      ></a-plane>
-      <a-plane
-        width="0.48"
-        height="0.48"
-        position="-0.09 0.00 0.28"
-        rotation="0 0 0"
-        material="shader: chromakey; src: #target3-video-5; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
-      ></a-plane>
+      </a-entity>
     </a-entity>
 
     <a-entity id="target4" mindar-image-target="targetIndex: 4">
       <a-plane
-        width="0.62"
-        height="0.62"
+        width="0.9"
+        height="0.9"
         position="0 0 0.20"
         material="shader: flat; src: #target4-video; transparent: true; depthWrite: false; side: double"
       ></a-plane>
@@ -611,7 +578,7 @@
 
     <a-entity id="target5" mindar-image-target="targetIndex: 5">
       <a-plane
-        src="images/target5_back.png"
+        src="images/target5_back.webp"
         width="1.55"
         height="1.098"
         position="0 0 0.18"
@@ -636,7 +603,7 @@
         "
       ></a-plane>
       <a-plane
-        src="images/target5_bancho.png"
+        src="images/target5_bancho.webp"
         width="1.55"
         height="1.098"
         position="0 0.03 0.42"
@@ -665,71 +632,18 @@
 
     <a-entity id="target6" mindar-image-target="targetIndex: 6">
       <a-plane
-        width="0.72"
-        height="0.72"
+        width="0.86"
+        height="0.86"
         position="0 0.12 0.26"
         material="shader: chromakey; src: #target6-video; keyColor: #00ff00; similarity: 0.38; smoothness: 0.10; spill: 0.85; transparent: true; depthWrite: false; side: double"
       ></a-plane>
-      <a-entity
-        position="0.12 0.10 0.44"
-        animation__float="property: position; from: 0.12 0.10 0.44; to: 0.12 0.16 0.44; dur: 1800; dir: alternate; loop: true; easing: easeInOutSine"
-        animation__pop="property: scale; from: 1 1 1; to: 1.045 1.045 1.045; dur: 1250; dir: alternate; loop: true; easing: easeInOutSine"
-      >
-        <a-plane
-          src="images/target6_portfolio.png"
-          width="1.35"
-          height="1.35"
-          material="shader: flat; transparent: true; depthWrite: false; side: double"
-        ></a-plane>
-        <a-plane
-          class="clickable"
-          click-to-link="url: https://fori.io/taaaarochiiii"
-          width="0.52"
-          height="0.34"
-          position="0.35 -0.02 0.06"
-          material="shader: flat; color: #ffffff; transparent: true; opacity: 0; depthWrite: false; side: double"
-        ></a-plane>
-      </a-entity>
-      <a-entity
-        position="0 -0.02 0.45"
-        animation__float="property: position; from: 0 -0.02 0.45; to: 0 0.04 0.45; dur: 1950; delay: 180; dir: alternate; loop: true; easing: easeInOutSine"
-        animation__pop="property: scale; from: 1 1 1; to: 1.04 1.04 1.04; dur: 1350; delay: 120; dir: alternate; loop: true; easing: easeInOutSine"
-      >
-        <a-plane
-          src="images/target6_litlink.png"
-          width="1.35"
-          height="1.35"
-          material="shader: flat; transparent: true; depthWrite: false; side: double"
-        ></a-plane>
-        <a-plane
-          class="clickable"
-          click-to-link="url: https://lit.link/taaaarochiiii"
-          width="0.52"
-          height="0.34"
-          position="-0.28 -0.41 0.06"
-          material="shader: flat; color: #ffffff; transparent: true; opacity: 0; depthWrite: false; side: double"
-        ></a-plane>
-      </a-entity>
-      <a-entity
-        position="-0.12 0.10 0.46"
-        animation__float="property: position; from: -0.12 0.10 0.46; to: -0.12 0.17 0.46; dur: 1700; delay: 320; dir: alternate; loop: true; easing: easeInOutSine"
-        animation__pop="property: scale; from: 1 1 1; to: 1.05 1.05 1.05; dur: 1180; delay: 220; dir: alternate; loop: true; easing: easeInOutSine"
-      >
-        <a-plane
-          src="images/target6_X.png"
-          width="1.35"
-          height="1.35"
-          material="shader: flat; transparent: true; depthWrite: false; side: double"
-        ></a-plane>
-        <a-plane
-          class="clickable"
-          click-to-link="url: https://x.com/taaaarochiiii"
-          width="0.48"
-          height="0.34"
-          position="-0.39 0.27 0.06"
-          material="shader: flat; color: #ffffff; transparent: true; opacity: 0; depthWrite: false; side: double"
-        ></a-plane>
-      </a-entity>
+      <a-plane
+        src="images/target6_comment.webp"
+        width="1.85"
+        height="1.85"
+        position="0 -0.38 0.42"
+        material="shader: flat; transparent: true; depthWrite: false; side: double"
+      ></a-plane>
     </a-entity>
 
     <a-entity id="target7" mindar-image-target="targetIndex: 7">
@@ -835,7 +749,7 @@
     const TARGET_PHYSICAL_HEIGHT_M = 0.297;
     const DESK_HEIGHT_M = 1.0;
 
-    const CHARACTER_IMAGE_SRC = "images/target0_character.png";
+    const CHARACTER_IMAGE_SRC = "images/target0_character.webp";
     const CHARACTER_VISIBLE_HEIGHT_M = 2.805;
     const CHARACTER_RIGHT_GAP_M = 0.0;
     const CHARACTER_VERTICAL_OFFSET_M = -0.70;
