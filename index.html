@@ -577,57 +577,59 @@
     </a-entity>
 
     <a-entity id="target5" mindar-image-target="targetIndex: 5">
-      <a-plane
-        src="images/target5_back.webp"
-        width="1.55"
-        height="1.098"
-        position="0 0 0.18"
-        scale="1.08 1.04 1"
-        material="shader: flat; transparent: true; depthWrite: false; side: double"
-        animation__sway="
-          property: rotation;
-          dir: alternate;
-          dur: 3600;
-          easing: easeInOutSine;
-          loop: true;
-          to: 0 0 2.5
-        "
-        animation__breathe="
-          property: scale;
-          from: 1.08 1.04 1;
-          to: 1.13 1.00 1;
-          dir: alternate;
-          dur: 2400;
-          easing: easeInOutSine;
-          loop: true
-        "
-      ></a-plane>
-      <a-plane
-        src="images/target5_bancho.webp"
-        width="1.55"
-        height="1.098"
-        position="0 0.03 0.42"
-        scale="1.08 1.08 1"
-        material="shader: flat; transparent: true; depthWrite: false; side: double"
-        animation__float="
-          property: position;
-          from: 0 0.01 0.42;
-          to: 0 0.09 0.42;
-          dir: alternate;
-          dur: 1900;
-          easing: easeInOutSine;
-          loop: true
-        "
-        animation__bob="
-          property: rotation;
-          from: 0 0 -2.2;
-          to: 0 0 2.2;
-          dir: alternate;
-          dur: 2600;
-          easing: easeInOutSine;
-          loop: true
-        "
-      ></a-plane>
+      <a-entity scale="0.8 0.8 1">
+        <a-plane
+          src="images/target5_back.webp"
+          width="1.55"
+          height="1.098"
+          position="0 0 0.18"
+          scale="1.08 1.04 1"
+          material="shader: flat; transparent: true; depthWrite: false; side: double"
+          animation__sway="
+            property: rotation;
+            dir: alternate;
+            dur: 3600;
+            easing: easeInOutSine;
+            loop: true;
+            to: 0 0 2.5
+          "
+          animation__breathe="
+            property: scale;
+            from: 1.08 1.04 1;
+            to: 1.13 1.00 1;
+            dir: alternate;
+            dur: 2400;
+            easing: easeInOutSine;
+            loop: true
+          "
+        ></a-plane>
+        <a-plane
+          src="images/target5_bancho.webp"
+          width="1.55"
+          height="1.098"
+          position="0 0.03 0.42"
+          scale="1.08 1.08 1"
+          material="shader: flat; transparent: true; depthWrite: false; side: double"
+          animation__float="
+            property: position;
+            from: 0 0.01 0.42;
+            to: 0 0.09 0.42;
+            dir: alternate;
+            dur: 1900;
+            easing: easeInOutSine;
+            loop: true
+          "
+          animation__bob="
+            property: rotation;
+            from: 0 0 -2.2;
+            to: 0 0 2.2;
+            dir: alternate;
+            dur: 2600;
+            easing: easeInOutSine;
+            loop: true
+          "
+        ></a-plane>
+      </a-entity>
     </a-entity>
 
     <a-entity id="target6" mindar-image-target="targetIndex: 6">
